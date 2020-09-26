@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Transpiles code into something the browser understands -->
+    <!-- Your custom script here -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- Takes components and renders them to the DOM -->
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- This will be controlled by our new React Component -->
+    </div>
+
+    <script type="text/babel">
+      // Create a JavaScript class-based component
+      class App extends React.Component { // We have access to React.Component from the first script tag
+        state = {
+          name: 'Amy',
+          favoriteNum: 2
+        }
+        // Render our template
+        render() {
+
+          // Generally always return ONE root element (contains all other elements within)
+          return (
+            <div className="app-content">
+              <h1>I am header 1</h1>
+              <p>{Math.random() * 10}</p>
+              <p>Name: {this.state.name} Favorite Number: {this.state.favoriteNum}</p>
+            </div>
+          )
+        }
+      }
+
+      // ReactDOM.render(<component />, where to render)
+      ReactDOM.render(<App />, document.getElementById('app'))
+    </script>
+  </body>
+</html>
